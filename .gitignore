@@ -1,0 +1,50 @@
+# ==========================================
+# Project Janus .gitignore
+# ==========================================
+
+# 1. Python & Virtual Environment (가상환경 및 캐시 파일)
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# 2. Environment Variables & Secrets (환경변수 및 인증 정보)
+.env
+.env.*
+*.pem
+*.key
+kubeconfig
+secrets.yaml
+
+# 3. Logs & Temporary Files (로그 및 임시 파일)
+*.log
+*.tmp
+*.bak
+*.swp
+/tmp/
+
+# 4. Machine Learning & Data (머신러닝 데이터 셋)
+# 주의: cryptojacking_dt_model.joblib 모델 파일은 용량이 작고 
+# 아키텍처 구동에 필수적이므로 기본적으로 Git에 포함시킵니다.
+# 만약 추후 모델 크기가 100MB를 넘어가면 아래 주석을 해제하고 Git LFS를 사용하세요.
+# *.joblib
+# *.h5
+# *.pkl
+*.csv
+*.dat
+datasets/
+
+# 5. OS & IDE (운영체제 및 에디터 찌꺼기 파일)
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

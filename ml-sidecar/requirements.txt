@@ -1,0 +1,5 @@
+grpcio
+grpcio-tools
+scikit-learn==1.6.1
+numpy
+joblib

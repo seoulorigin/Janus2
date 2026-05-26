@@ -1,0 +1,5 @@
+tetragon:
+  securityContext:
+    privileged: true
+  hostPID: true
+  hostNetwork: true

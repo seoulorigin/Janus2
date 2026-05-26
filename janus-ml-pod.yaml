@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: janus-ml-engine
+  namespace: cl-security
+spec:
+  hostNetwork: true  # 노드의 네트워크(localhost)를 공유하여 Tetragon 데몬셋의 50051 포트에 직접 접근
+  containers:
+    - name: ml-engine
+      image: janus-ml-sidecar:v1.0
+      imagePullPolicy: Never  # 외부 저장소가 아닌 Minikube 로컬에 빌드된 이미지를 즉시 사용

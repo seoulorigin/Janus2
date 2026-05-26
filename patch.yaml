@@ -1,0 +1,15 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: janus-ml-sidecar
+        image: janus-ml-sidecar:v1.1
+        imagePullPolicy: Never
+        volumeMounts:
+        - name: tetragon-sock-dir
+          mountPath: /var/run/tetragon/
+      volumes:
+      - name: tetragon-sock-dir
+        hostPath:
+          path: /var/run/tetragon/
+          type: DirectoryOrCreate
