@@ -1,4 +1,6 @@
 tetragon:
+  grpc:
+    address: "localhost:54321"  # ★ 추가: 무조건 54321 TCP 포트를 열도록 강제
   securityContext:
     privileged: true
   hostPID: true

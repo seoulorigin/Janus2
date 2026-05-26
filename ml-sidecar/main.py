@@ -27,7 +27,7 @@ SYSCALL_MAP = {
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - [%(levelname)s] - %(message)s')
 
 def connect_and_stream(model):
-    target_address = 'unix:///var/run/tetragon/tetragon.sock'
+    target_address = 'localhost:54321'
     backoff = 1
     max_backoff = 64
     

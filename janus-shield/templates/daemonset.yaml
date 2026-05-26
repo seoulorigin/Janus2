@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: janus-ml-agent
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: janus-ml-agent
+spec:
+  selector:
+    matchLabels:
+      app: janus-ml-agent
+  template:
+    metadata:
+      labels:
+        app: janus-ml-agent
+    spec:
+      hostNetwork: true  # ★ 핵심: 노드 네트워크를 타고 공식 Tetragon(50051)에 연결
+      containers:
+        - name: janus-ml-sidecar
+          image: {{ .Values.image.ml_sidecar }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}

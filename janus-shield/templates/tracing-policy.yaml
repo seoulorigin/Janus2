@@ -1,0 +1,29 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: janus-tracepoint-exact
+  namespace: {{ .Values.namespace }}
+spec:
+  tracepoints:
+    - subsystem: "syscalls"
+      event: "sys_enter_read"
+    - subsystem: "syscalls"
+      event: "sys_enter_write"
+    - subsystem: "syscalls"
+      event: "sys_enter_poll"
+    - subsystem: "syscalls"
+      event: "sys_enter_ioctl"
+    - subsystem: "syscalls"
+      event: "sys_enter_sched_yield"  # XMRig 핵심
+    - subsystem: "syscalls"
+      event: "sys_enter_sendto"
+    - subsystem: "syscalls"
+      event: "sys_enter_recvfrom"
+    - subsystem: "syscalls"
+      event: "sys_enter_futex"
+    - subsystem: "syscalls"
+      event: "sys_enter_epoll_ctl"
+    - subsystem: "syscalls"
+      event: "sys_enter_newfstatat"
+    - subsystem: "syscalls"
+      event: "sys_enter_epoll_pwait"  # xmr-stak 핵심
